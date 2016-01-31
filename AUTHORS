@@ -1,0 +1,69 @@
+Original authors
+================
+
+George Parisis          <georgios.parisis@cl.cam.ac.uk>
+    Architectural design. Implementation of Click elements, topology manager,
+    deployment tool, API libraries and sample applications for C++.
+
+Dirk Trossen            <dirk.trossen@cl.cam.ac.uk>
+    Architectural design.
+
+
+Contributors of PURSUIT
+=======================
+
+Jimmy Kjällman          <jimmy.kjallman@nomadiclab.com>
+    Fixes, FreeBSD and Mac OS X porting, SWIG-based language bindings,
+    C binding, sample applications for Python, Ruby, Java and C, etc.
+
+Dimitris Syrivelis      <jsyr@inf.uth.gr>
+    Deployment tool, PlanetLab support, Click elements.
+
+Christos Tsilopoulos    <tsilochr@aueb.gr>
+    Java bindings and Java-based voice application.
+
+Charilaos Stais         <stais@aueb.gr>
+    Java-based voice application.
+
+Ben Tagger              <ben.tagger@cl.cam.ac.uk>
+    Video streaming GUI demo application.
+
+Mays Al-Naday           <mfhaln@essex.ac.uk>
+    Multi-layer deployment. Resiliency.
+
+Yi-Ching Liao           <yliao@cs.helsinki.fi>
+    PLA support.
+
+Dmitrij Lagutin         <dmitrij.lagutin@hiit.fi>
+    PLA support.
+
+Nikos Fotiou            <fotiou@aueb.gr>
+    Access control implementation.
+
+Martin Reed				<mjreed@essex.ac.uk>
+    Traffic Engineering.
+
+Andreas Bontozoglou
+    QoS.
+
+Evans Mungai		<evans.mungai@aalto.fi>
+    Additions to C API.
+
+Contributors of POINT Cycle-1
+=============================
+
+Martin J Reed   <mjreed@essex.ac.uk>
+    Fixed the publisher behaviour, ICN-SDN forwardings
+
+Mays AL-Naday   <mfhaln@essex.ac.uk>
+    Extended Blackadder, user Library, TM and RM for IP-over-ICN comms,
+    ICN-SDN forwarding, SDN in the deployment tool, samples applciations, Fixes, ..etc.
+
+Sebastian Robitzch  <Sebastian.Robitzsch@InterDigital.com>
+    Added the NAP for IP-over-ICN comms.
+
+Mohammed Al-Khalidi <mshawk@essex.ac.uk>
+    Extended support for NS3
+
+George Petropoulos <geopet@intracom-telecom.com>
+    Extended the deployment tool with the dynamic support for addition/deletion of nodes
