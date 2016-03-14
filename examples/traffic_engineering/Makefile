@@ -13,8 +13,6 @@ EXEC=	broadcast_linkstate_monitor \
 	metadata_provider \
 	ping_publisher \
 	ping_subscriber\
-	ping_publisher_mc\
-	ping_subscriber_mc\
 
 .PHONY: all clean
 
