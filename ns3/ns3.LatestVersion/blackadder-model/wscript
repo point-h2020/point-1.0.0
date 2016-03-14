@@ -102,6 +102,7 @@ def build(bld):
         'model/event.cc',
         'model/bit-vector.cc',
         'model/tm_igraph.cc',
+        'model/igraph_version.cc',
         ]
 
     module_test = bld.create_ns3_module_test_library('blackadder')
@@ -124,6 +125,7 @@ def build(bld):
         'model/event.h',
         'model/bit-vector.h',
         'model/tm_igraph.h',
+        'model/igraph_version.h',
         ]
 
     if (bld.env['ENABLE_EXAMPLES']):

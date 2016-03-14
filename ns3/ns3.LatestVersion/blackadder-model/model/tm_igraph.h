@@ -4,7 +4,7 @@
  *
  * This program is free software; you can redistribute it and/or
  * modify it under the terms of the GNU General Public License version
- * 3 as published by the Free Software Foundation.
+ * 2 as published by the Free Software Foundation.
  *
  * Alternatively, this software may be distributed under the terms of
  * the BSD license.
@@ -20,7 +20,6 @@
 #include <string>
 
 #include <igraph/igraph.h>
-
 #include <climits>
 #include <stdlib.h>
 #include <iostream>
@@ -28,15 +27,9 @@
 
 #include "bit-vector.h"
 #include "service-model.h"
+#include "igraph_version.h"
 
-/* XXX: Try to figure out igraph version based on very simple assumptions. */
-#define IGRAPH_V_0_6   60
-#define IGRAPH_V_0_5   50
-#ifdef IGRAPH_VERSION
-# define IGRAPH_V IGRAPH_V_0_6
-#else /* !defined(IGRAPH_VERSION) */
-# define IGRAPH_V IGRAPH_V_0_5
-#endif
+
 
 using namespace ns3;
 using namespace std;

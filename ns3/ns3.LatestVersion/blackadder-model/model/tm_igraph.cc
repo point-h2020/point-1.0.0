@@ -4,7 +4,7 @@
  *
  * This program is free software; you can redistribute it and/or
  * modify it under the terms of the GNU General Public License version
- * 3 as published by the Free Software Foundation.
+ * 2 as published by the Free Software Foundation.
  *
  * Alternatively, this software may be distributed under the terms of
  * the BSD license.
@@ -115,7 +115,9 @@ Ptr<BitVector> TMIgraph::calculateFID(string &source, string &destination) {
     VECTOR(res)[0] = temp_v;
     igraph_vector_init(temp_v, 1);
     /*run the shortest path algorithm from "from"*/
-#if IGRAPH_V >= IGRAPH_V_0_6
+#if IGRAPH_V >= IGRAPH_V_0_7
+    igraph_get_shortest_paths(&graph, &res, NULL, from, vs, IGRAPH_OUT,NULL,NULL);    
+#elif IGRAPH_V >= IGRAPH_V_0_6
     igraph_get_shortest_paths(&graph, &res, NULL, from, vs, IGRAPH_OUT);
 #else
     igraph_get_shortest_paths(&graph, &res, from, vs, IGRAPH_OUT);
@@ -217,7 +219,9 @@ void TMIgraph::calculateFID(string &source, string &destination, BitVector &resu
     VECTOR(res)[0] = temp_v;
     igraph_vector_init(temp_v, 1);
     /*run the shortest path algorithm from "from"*/
-#if IGRAPH_V >= IGRAPH_V_0_6
+#if IGRAPH_V >= IGRAPH_V_0_7
+    igraph_get_shortest_paths(&graph, &res, NULL, from, vs, IGRAPH_OUT,NULL,NULL);
+#elif IGRAPH_V >= IGRAPH_V_0_6
     igraph_get_shortest_paths(&graph, &res, NULL, from, vs, IGRAPH_OUT);
 #else
     igraph_get_shortest_paths(&graph, &res, from, vs, IGRAPH_OUT);
