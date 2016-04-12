@@ -937,9 +937,16 @@ void Domain::writeNS3ClickFiles() {
     for (size_t i = 0; i < network_nodes.size(); i++) {
         vector<string> unique_ifaces;
         NetworkNode *nn = network_nodes[i];
+        string node_type = "FW";      //Introducing Node Type to NS3 Click Files
+        if (nn->isRV) {
+            node_type += ":RV";
+        }
+        if (nn->isTM) {
+            node_type += ":TM";
+        }
         click_conf.open((write_conf + nn->label + ".conf").c_str());
         /*Blackadder Elements First*/
-        click_conf << "globalconf::GlobalConf(MODE mac, NODEID " << nn->label << "," << endl;
+        click_conf << "globalconf::GlobalConf(TYPE " << node_type <<", MODE mac, NODEID " << nn->label << "," << endl;
         click_conf << "DEFAULTRV " << nn->FID_to_RV.to_string() << "," << endl;
         click_conf << "TMFID     " << nn->FID_to_TM.to_string() << "," << endl;
         click_conf << "iLID      " << nn->iLid.to_string() << ");" << endl << endl;

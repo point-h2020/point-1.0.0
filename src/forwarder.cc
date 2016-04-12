@@ -275,7 +275,7 @@ void Forwarder::push(int in_port, Packet *p) {
                         EtherAddress src(p->data() + MAC_LEN);
                         EtherAddress dst(p->data());
                         if ((src.unparse().compare(fe->dst->unparse()) == 0) && (dst.unparse().compare(fe->src->unparse()) == 0)) {
-                            click_chatter("MAC: a loop from positive..I am not forwarding to the interface I received the packet from");
+//                         click_chatter("MAC: a loop from positive..I am not forwarding to the interface I received the packet from");
                             continue;
                         }
                     } else {

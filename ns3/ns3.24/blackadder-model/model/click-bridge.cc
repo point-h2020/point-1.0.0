@@ -1,5 +1,6 @@
 /*
- * Copyright (C) 2010-2012  George Parisis and Dirk Trossen
+ * Copyright (C) 2010-2016  George Parisis and Dirk Trossen
+ * Copyright (C) 2015-2016  Mohammed Al-Khalidi
  * All rights reserved.
  *
  * This program is free software; you can redistribute it and/or

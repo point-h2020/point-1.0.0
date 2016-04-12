@@ -1,5 +1,6 @@
 /*
- * Copyright (C) 2010-2012  George Parisis and Dirk Trossen
+ * Copyright (C) 2010-2016  George Parisis and Dirk Trossen
+ * Copyright (C) 2015-2016  Mohammed Al-Khalidi
  * All rights reserved.
  *
  * This program is free software; you can redistribute it and/or
@@ -74,7 +75,7 @@ namespace ns3 {
         std::string bin_prefix_id = hex_to_chararray(prefix_id);
         publish_info(FINALID, bin_prefix_id, DOMAIN_LOCAL, NULL, 0);
         free(testID);
-        m_Event = Simulator::Schedule(MilliSeconds(500.), &Publisher::publish, this);
+//      m_Event = Simulator::Schedule(MilliSeconds(500.), &Publisher::publish, this);
     }
 
     void Publisher::EventHandler(Ptr<Event> ev) {
