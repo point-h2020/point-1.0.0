@@ -3,12 +3,11 @@
 ###  Author: Mohammed Al-Khalidi <mshawk@essex.ac.uk> 
 ### 
 
-sink("ns3_topology.cfg")
 
 library(graph)
 library(igraph)
 
-g <- barabasi.game(100, directed = FALSE)
+g <- barabasi.game(5, directed = FALSE)
 g <- as_graphnel(g)
 
 ed <- list()
@@ -37,12 +36,12 @@ h=1;
 for(i in seq(1:h)) 
  
 { 
-cat("BLACKADDER_ID_LENGTH = 8;")
-cat("\nLIPSIN_ID_LENGTH = 32;")
-cat("\nWRITE_CONF = ")
-cat("\"/tmp/\";")
-cat("\n\nnetwork = {")
-cat("\nnodes = (")
+cat(file="ns_topology.cfg", append=FALSE, "BLACKADDER_ID_LENGTH = 8;")
+cat(file="ns_topology.cfg", append=TRUE, "\nLIPSIN_ID_LENGTH = 32;")
+cat(file="ns_topology.cfg", append=TRUE, "\nWRITE_CONF = ")
+cat(file="ns_topology.cfg", append=TRUE, "\"/tmp/\";")
+cat(file="ns_topology.cfg", append=TRUE, "\n\nnetwork = {")
+cat(file="ns_topology.cfg", append=TRUE, "\nnodes = (")
 
 }
 v=1;
@@ -56,75 +55,75 @@ for(i in seq(1:n))
 	
 
 
-cat("\n{")
+cat(file="ns_topology.cfg", append=TRUE, "\n{")
 
-cat("\nrole = [];")
+cat(file="ns_topology.cfg", append=TRUE, "\nrole = [];")
 
 
 b=z[i];
 w=p[i];
 
 if(b == 1) {
-cat("\nlabel =","\"0000000")
-cat(X[i])
-cat("\";")
+cat(file="ns_topology.cfg", append=TRUE, "\nlabel =","\"0000000")
+cat(file="ns_topology.cfg", append=TRUE, X[i])
+cat(file="ns_topology.cfg", append=TRUE, "\";")
 
-cat("\nconnections = (")
+cat(file="ns_topology.cfg", append=TRUE, "\nconnections = (")
 
 }
 if (b == 2) {
-cat("\nlabel =","\"000000")
-cat(X[i])
-cat("\";")
+cat(file="ns_topology.cfg", append=TRUE, "\nlabel =","\"000000")
+cat(file="ns_topology.cfg", append=TRUE, X[i])
+cat(file="ns_topology.cfg", append=TRUE, "\";")
 
-cat("\nconnections = (")
+cat(file="ns_topology.cfg", append=TRUE, "\nconnections = (")
 
 }
 if (b == 3) {
-cat("\nlabel =","\"00000")
-cat(X[i])
-cat("\";")
+cat(file="ns_topology.cfg", append=TRUE, "\nlabel =","\"00000")
+cat(file="ns_topology.cfg", append=TRUE, X[i])
+cat(file="ns_topology.cfg", append=TRUE, "\";")
 
-cat("\nconnections = (")
+cat(file="ns_topology.cfg", append=TRUE, "\nconnections = (")
 
 }		
-cat("\n{")
+cat(file="ns_topology.cfg", append=TRUE, "\n{")
  
 if(w == 1) {               
-cat("\nto = ","\"0000000")
-cat(Y[i])
-cat("\";")
-cat("\nMtu = 1500;")
+cat(file="ns_topology.cfg", append=TRUE, "\nto = ","\"0000000")
+cat(file="ns_topology.cfg", append=TRUE, Y[i])
+cat(file="ns_topology.cfg", append=TRUE, "\";")
+cat(file="ns_topology.cfg", append=TRUE, "\nMtu = 1500;")
 
 }
 if (w == 2) {
-cat("\nto = ","\"000000")
-cat(Y[i])
-cat("\";")
-cat("\nMtu = 1500;")
+cat(file="ns_topology.cfg", append=TRUE, "\nto = ","\"000000")
+cat(file="ns_topology.cfg", append=TRUE, Y[i])
+cat(file="ns_topology.cfg", append=TRUE, "\";")
+cat(file="ns_topology.cfg", append=TRUE, "\nMtu = 1500;")
 
 }
 if (w == 3) {
-cat("\nto = ","\"00000")
-cat(Y[i])
-cat("\";")
-cat("\nMtu = 1500;")
+cat(file="ns_topology.cfg", append=TRUE, "\nto = ","\"00000")
+cat(file="ns_topology.cfg", append=TRUE, Y[i])
+cat(file="ns_topology.cfg", append=TRUE, "\";")
+cat(file="ns_topology.cfg", append=TRUE, "\nMtu = 1500;")
 
 }
-cat("\nDataRate =")
-cat("\"100Mbps\"")
-cat(";")
+cat(file="ns_topology.cfg", append=TRUE, "\nDataRate =")
+cat(file="ns_topology.cfg", append=TRUE, "\"100Mbps\"")
+cat(file="ns_topology.cfg", append=TRUE, ";")
 
-cat("\nDelay = \"10ms\";")
+cat(file="ns_topology.cfg", append=TRUE, "\nDelay = \"10ms\";")
 
 if (X[i+1]== v)
 
 {
-cat("\n},")
+cat(file="ns_topology.cfg", append=TRUE, "\n},")
  }
 else 
 {
-cat("\n}")
+cat(file="ns_topology.cfg", append=TRUE, "\n}")
 } 
       
 i <- i+1
@@ -137,39 +136,39 @@ else if (X[i] == 1)
 
 {
   w=p[i];
-  cat("\n{")
+  cat(file="ns_topology.cfg", append=TRUE, "\n{")
  
 if(w == 1) {    
-cat("\nto = ","\"0000000")
-cat(Y[i])
-cat("\";")
+cat(file="ns_topology.cfg", append=TRUE, "\nto = ","\"0000000")
+cat(file="ns_topology.cfg", append=TRUE, Y[i])
+cat(file="ns_topology.cfg", append=TRUE, "\";")
 }
 if (w == 2) {
-cat("\nto = ","\"000000")
-cat(Y[i])
-cat("\";")
+cat(file="ns_topology.cfg", append=TRUE, "\nto = ","\"000000")
+cat(file="ns_topology.cfg", append=TRUE, Y[i])
+cat(file="ns_topology.cfg", append=TRUE, "\";")
 }
 if (w == 3) {
-cat("\nto = ","\"00000")
-cat(Y[i])
-cat("\";")
+cat(file="ns_topology.cfg", append=TRUE, "\nto = ","\"00000")
+cat(file="ns_topology.cfg", append=TRUE, Y[i])
+cat(file="ns_topology.cfg", append=TRUE, "\";")
 }
-cat("\nMtu = 1500;")
-cat("\nDataRate =")
+cat(file="ns_topology.cfg", append=TRUE, "\nMtu = 1500;")
+cat(file="ns_topology.cfg", append=TRUE, "\nDataRate =")
 
-cat("\"100Mbps\"")
-cat(";")
-cat("\nDelay = \"10ms\";")
+cat(file="ns_topology.cfg", append=TRUE, "\"100Mbps\"")
+cat(file="ns_topology.cfg", append=TRUE, ";")
+cat(file="ns_topology.cfg", append=TRUE, "\nDelay = \"10ms\";")
 if(X[i + 1] == 1)
 
 
 {
-cat("\n},")
+cat(file="ns_topology.cfg", append=TRUE, "\n},")
  
 }
 else if(X[i + 1] != 1) 
 {
-cat("\n}")
+cat(file="ns_topology.cfg", append=TRUE, "\n}")
 
 }     
 
@@ -192,67 +191,67 @@ for(i in seq(1:n))
 {
 
 	
-cat("\n);")
+cat(file="ns_topology.cfg", append=TRUE, "\n);")
 	
-cat("\n},")
+cat(file="ns_topology.cfg", append=TRUE, "\n},")
 
-cat("\n{")
+cat(file="ns_topology.cfg", append=TRUE, "\n{")
 
-cat("\nrole = [];")
+cat(file="ns_topology.cfg", append=TRUE, "\nrole = [];")
 
 
 b=z[i];
 w=p[i];
 {
 if(b == 1) {
-cat("\nlabel =","\"0000000")
-cat(X[i])
-cat("\";")
+cat(file="ns_topology.cfg", append=TRUE, "\nlabel =","\"0000000")
+cat(file="ns_topology.cfg", append=TRUE, X[i])
+cat(file="ns_topology.cfg", append=TRUE, "\";")
 
-cat("\nconnections = (")
+cat(file="ns_topology.cfg", append=TRUE, "\nconnections = (")
 
 }
 if (b == 2) {
-cat("\nlabel =","\"000000")
-cat(X[i])
-cat("\";")
+cat(file="ns_topology.cfg", append=TRUE, "\nlabel =","\"000000")
+cat(file="ns_topology.cfg", append=TRUE, X[i])
+cat(file="ns_topology.cfg", append=TRUE, "\";")
 
-cat("\nconnections = (")
+cat(file="ns_topology.cfg", append=TRUE, "\nconnections = (")
 
 }
 if (b == 3) {
-cat("\nlabel =","\"00000")
-cat(X[i])
-cat("\";")
+cat(file="ns_topology.cfg", append=TRUE, "\nlabel =","\"00000")
+cat(file="ns_topology.cfg", append=TRUE, X[i])
+cat(file="ns_topology.cfg", append=TRUE, "\";")
 
-cat("\nconnections = (")
+cat(file="ns_topology.cfg", append=TRUE, "\nconnections = (")
 	
 }		
-cat("\n{")
+cat(file="ns_topology.cfg", append=TRUE, "\n{")
  
 if(w == 1) {               
-cat("\nto = ","\"0000000")
-cat(Y[i])
-cat("\";")
+cat(file="ns_topology.cfg", append=TRUE, "\nto = ","\"0000000")
+cat(file="ns_topology.cfg", append=TRUE, Y[i])
+cat(file="ns_topology.cfg", append=TRUE, "\";")
 }
 if (w == 2) {
-cat("\nto = ","\"000000")
-cat(Y[i])
-cat("\";")
+cat(file="ns_topology.cfg", append=TRUE, "\nto = ","\"000000")
+cat(file="ns_topology.cfg", append=TRUE, Y[i])
+cat(file="ns_topology.cfg", append=TRUE, "\";")
 
 }
 if (w == 3) {
-cat("\nto = ","\"00000")
-cat(Y[i])
-cat("\";")
+cat(file="ns_topology.cfg", append=TRUE, "\nto = ","\"00000")
+cat(file="ns_topology.cfg", append=TRUE, Y[i])
+cat(file="ns_topology.cfg", append=TRUE, "\";")
 }
 
-cat("\nMtu = 1500;")
-cat("\nDataRate =")
-cat("\"100Mbps\"")
-cat(";")
+cat(file="ns_topology.cfg", append=TRUE, "\nMtu = 1500;")
+cat(file="ns_topology.cfg", append=TRUE, "\nDataRate =")
+cat(file="ns_topology.cfg", append=TRUE, "\"100Mbps\"")
+cat(file="ns_topology.cfg", append=TRUE, ";")
 
-cat("\nDelay = \"10ms\";")
+cat(file="ns_topology.cfg", append=TRUE, "\nDelay = \"10ms\";")
 
 
 if ((i+1) <= n)
@@ -262,18 +261,18 @@ if (X[i + 1] == m)
 
 
 {
-cat("\n},")
+cat(file="ns_topology.cfg", append=TRUE, "\n},")
  
 }
 else if (X[i + 1] != m )
 {
-cat("\n}")
+cat(file="ns_topology.cfg", append=TRUE, "\n}")
 
 } 
 }
  else if ((i+1) > n)
 {
-cat("\n}")
+cat(file="ns_topology.cfg", append=TRUE, "\n}")
 
 }
 
@@ -288,30 +287,30 @@ else if ((X[i] == (m -1)) && (X[i] != 1))
 
 {
   w=p[i];
-  cat("\n{")
+  cat(file="ns_topology.cfg", append=TRUE, "\n{")
  
 if(w == 1) {    
-cat("\nto = ","\"0000000")
-cat(Y[i])
-cat("\";")
+cat(file="ns_topology.cfg", append=TRUE, "\nto = ","\"0000000")
+cat(file="ns_topology.cfg", append=TRUE, Y[i])
+cat(file="ns_topology.cfg", append=TRUE, "\";")
 }
 if (w == 2) {
-cat("\nto = ","\"000000")
-cat(Y[i])
-cat("\";")
+cat(file="ns_topology.cfg", append=TRUE, "\nto = ","\"000000")
+cat(file="ns_topology.cfg", append=TRUE, Y[i])
+cat(file="ns_topology.cfg", append=TRUE, "\";")
 }
 if (w == 3) {
-cat("\nto = ","\"00000")
-cat(Y[i])
-cat("\";")
+cat(file="ns_topology.cfg", append=TRUE, "\nto = ","\"00000")
+cat(file="ns_topology.cfg", append=TRUE, Y[i])
+cat(file="ns_topology.cfg", append=TRUE, "\";")
 
 }
-cat("\nMtu = 1500;")
-cat("\nDataRate =")
+cat(file="ns_topology.cfg", append=TRUE, "\nMtu = 1500;")
+cat(file="ns_topology.cfg", append=TRUE, "\nDataRate =")
 
-cat("\"100Mbps\"")
-cat(";")
-cat("\nDelay = \"10ms\";")
+cat(file="ns_topology.cfg", append=TRUE, "\"100Mbps\"")
+cat(file="ns_topology.cfg", append=TRUE, ";")
+cat(file="ns_topology.cfg", append=TRUE, "\nDelay = \"10ms\";")
 
 
 if ((i+1) <= n)
@@ -320,18 +319,18 @@ if(X[i + 1] == (m -1))
 
 
 {
-cat("\n},")
+cat(file="ns_topology.cfg", append=TRUE, "\n},")
  
 }
 else if(X[i + 1] != (m -1)) 
 {
-cat("\n}")
+cat(file="ns_topology.cfg", append=TRUE, "\n}")
 
 }
 }
  else if ((i+1) > n)
 {
-cat("\n}")
+cat(file="ns_topology.cfg", append=TRUE, "\n}")
 
 }
  
@@ -343,10 +342,10 @@ i <- i+1
 }
 
 
-cat("\n);")
+cat(file="ns_topology.cfg", append=TRUE, "\n);")
 	
-cat("\n}")
-cat("\n);")
+cat(file="ns_topology.cfg", append=TRUE, "\n}")
+cat(file="ns_topology.cfg", append=TRUE, "\n);")
 	
-cat("\n};")
+cat(file="ns_topology.cfg", append=TRUE, "\n};")
 
