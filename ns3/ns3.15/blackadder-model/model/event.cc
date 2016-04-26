@@ -14,6 +14,8 @@
 
 #include "event.h"
 
+#include <stdlib.h>
+
 NS_LOG_COMPONENT_DEFINE("Event");
 
 namespace ns3 {
